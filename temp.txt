@@ -1,0 +1,3 @@
+Python 3.9.7
+
+(base) C:\Users\Pradnyan>conda create --name house python=3.9.7
