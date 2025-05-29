@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact - Stroke Prediction App</title>
-  <link rel="stylesheet" href="../static/css/contact.css">
-  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
   <header>
@@ -27,7 +27,7 @@
       <h2>Contact Us</h2>
       <p>If you have any questions, feedback, or suggestions, feel free to get in touch with us using the form below.</p>
 
-      <form action="/submit_contact" method="POST" class="contact-form">
+      <form id="contact-form" class="contact-form">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required />
 
@@ -41,5 +41,26 @@
       </form>
     </div>
   </section>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent actual submission
+
+      // You can collect form data here if needed
+      const formData = new FormData(this);
+
+      // Optional: send data via fetch() to backend if needed
+      // fetch('/submit_contact', {
+      //   method: 'POST',
+      //   body: formData
+      // });
+
+      // Show popup
+      alert("Message submitted!");
+
+      // Optionally, clear form
+      this.reset();
+    });
+  </script>
 </body>
 </html>
